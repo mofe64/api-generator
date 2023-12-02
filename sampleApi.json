@@ -1,0 +1,74 @@
+{
+  "language": "js",
+  "framework": "express",
+  "database": "mongodb",
+  "globalErrorHandling": true,
+  "implementAuth": true,
+  "apiVersion": 1,
+  "models": [
+    {
+      "name": "user",
+      "fields": [
+        {
+          "name": "email",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "email"
+          }
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "password",
+            "minLength": 7
+          }
+        },
+        {
+          "name": ["firstname", "lastname"],
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 2,
+            "maxLength": 30
+          }
+        },
+        {
+          "name": "profile",
+          "type": "ref",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "ref"
+          }
+        }
+      ]
+    },
+    {
+      "name": "profile",
+      "fields": []
+    }
+  ],
+  "authConfig": {
+    "useRoleBasedAuth": true,
+    "roles": [
+      {
+        "name": "super-admin",
+        "writePermissions": [],
+        "readPermissions": []
+      },
+      {
+        "name": "admin",
+        "writePermissions": [],
+        "readPermissions": []
+      },
+      {
+        "name": "user",
+        "writePermissions": [],
+        "readPermissions": []
+      }
+    ]
+  }
+}
