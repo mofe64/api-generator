@@ -37,7 +37,7 @@
           }
         },
         {
-          "name": "profile",
+          "name": "address",
           "type": "ref",
           "validateOptions": {
             "required": true,
@@ -47,8 +47,46 @@
       ]
     },
     {
-      "name": "profile",
-      "fields": []
+      "name": "address",
+      "fields": [
+        {
+          "name": "state",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 2,
+            "maxLength": 30
+          }
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 2,
+            "maxLength": 30
+          }
+        },
+        {
+          "name": "houseNumber",
+          "type": "int",
+          "validateOptions": {
+            "required": true
+          }
+        },
+        {
+          "name": "street",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 2,
+            "maxLength": 30
+          }
+        }
+      ]
     }
   ],
   "authConfig": {
