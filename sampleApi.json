@@ -27,7 +27,17 @@
           }
         },
         {
-          "name": ["firstname", "lastname"],
+          "name": "firstname",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 2,
+            "maxLength": 30
+          }
+        },
+        {
+          "name": "lastname",
           "type": "string",
           "validateOptions": {
             "required": true,
@@ -39,6 +49,7 @@
         {
           "name": "address",
           "type": "ref",
+          "refType": "single",
           "validateOptions": {
             "required": true,
             "validateAs": "ref"
@@ -83,6 +94,21 @@
             "required": true,
             "validateAs": "string",
             "minLength": 2,
+            "maxLength": 30
+          }
+        }
+      ]
+    },
+    {
+      "name": "account",
+      "fields": [
+        {
+          "name": "number",
+          "type": "string",
+          "validateOptions": {
+            "required": true,
+            "validateAs": "string",
+            "minLength": 10,
             "maxLength": 30
           }
         }
